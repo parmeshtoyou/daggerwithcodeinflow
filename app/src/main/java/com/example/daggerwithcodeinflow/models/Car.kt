@@ -8,7 +8,13 @@ data class Car @Inject constructor(val engine: Engine, val wheels: Wheels) {
         Log.d(TAG, "DRIVING CAR")
     }
 
+    @Inject
+    fun addRemote(remote: Remote) {
+        Log.d(TAG, "adding remote")
+        remote.setListener(this)
+    }
+
     companion object {
-        private val TAG = Car::class.simpleName
+        private val TAG = "TESTING-${Car::class.simpleName}"
     }
 }
